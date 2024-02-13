@@ -60,3 +60,7 @@ int main(){
     //Pass by Reference (Requires Backtracking  but doesnot take extra memory)
     PrintPermutationReference(str,index);
 }
+
+
+//Backtracking--->>it is simple recursion and when coming back from recursive call
+//we do some additional operation and this additional operation is called Backtracking 
