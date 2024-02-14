@@ -73,7 +73,7 @@ void merge(int arr[], int s, int e) {
 
 void mergeSort(int arr[], int s, int e) {
 	//base case
-	if(s >= e) {
+	if(s == e) {
 		return;
 	}
 	//break
