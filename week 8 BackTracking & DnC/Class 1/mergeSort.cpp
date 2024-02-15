@@ -6,8 +6,9 @@ void merge(int arr[], int s, int e) {
 	int mid = (s+e)/2;
 
 	int lenLeft = mid - s + 1;
-	int lenRight = e - mid;
+	int lenRight = e - mid;       
 
+	
 	//create left and right array
 	int *left = new int[lenLeft];
 	int *right = new int[lenRight];
@@ -88,8 +89,8 @@ void mergeSort(int arr[], int s, int e) {
 
 int main() {
 
-	int arr[] = {2,1,6,9,4,5};
-	int size = 6;
+	int arr[] = {5,6,7,8,1,2,3,9};
+	int size =sizeof(arr)/sizeof(int);
 	int s = 0;
 	int e = size - 1;
 
