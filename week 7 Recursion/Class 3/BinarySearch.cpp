@@ -27,7 +27,7 @@ int BinarySearch(int arr[],int n,int start,int end,int target){
 int main(){
     int arr[]={10,20,30,40,50,60,70,80,90,100};
     int target;
-    cout << "Enter the Value of teh Target : ";
+    cout << "Enter the Value of the Target : ";
     cin >> target;
 
     int n=sizeof(arr)/sizeof(int);
