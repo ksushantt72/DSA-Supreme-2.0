@@ -120,6 +120,7 @@ int main(){
         cout << " No Possible Moves Allowed " << endl;
     }
     else{
+        cout << "All Possible Ways are Listed as follows : " << endl << endl;
         visited[srcx][srcy]=true;
         printAllPath(maze,row,col,srcx,srcy,Output,visited);
     }
