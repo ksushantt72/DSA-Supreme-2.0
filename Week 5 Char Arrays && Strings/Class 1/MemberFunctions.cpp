@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
     string str1="Sushant kumar ";
-    string str2="SINGH";
+    string str2="Singh";
 
 
 //1.Appending
@@ -35,7 +35,7 @@ int main(){
 
 //7.Erase
 //It erases the character from 8th index and 5 element from it
-    cout << "Erased " <<  str1.erase(8,6) << endl; 
+    cout << "Erased " <<  str1.erase(8,5) << endl; 
 
 //8.Insert
 //It inserts "Kumar" from 8th index
