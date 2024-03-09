@@ -13,11 +13,7 @@ int Factorial(int n){
     }
 
     //Recursive Relation
-    int recursionKaAns=Factorial(n-1);
-
-    //Processing
-    int finalans=n*recursionKaAns;
-    return finalans;
+    return n*Factorial(n-1);
 
 }
 
