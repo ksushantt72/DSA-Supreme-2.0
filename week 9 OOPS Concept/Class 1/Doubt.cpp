@@ -18,5 +18,6 @@ public:
 int main()
 {
     cout << "Size of Student Class :" << sizeof(Student) << endl;
+    cout << sizeof(string);
     return 0;
 }
