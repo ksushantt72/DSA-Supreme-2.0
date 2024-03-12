@@ -89,10 +89,10 @@ int main()
     // Copy Ctor
     Student s1(2305906, 19, 1, "Sushant", 5, "None");
     // Copy Ctor
-    //Student s2 = s1;
+    // Student s2 = s1;
     Student s2(s1);
 
-    //ln 92 and 93 are the ways for calling copy ctor
+    // ln 92 and 93 are the ways for calling copy ctor
 
     cout << s1.name << endl; // Output--> Sushant
     cout << s2.name << endl; // Output--> Sushant
