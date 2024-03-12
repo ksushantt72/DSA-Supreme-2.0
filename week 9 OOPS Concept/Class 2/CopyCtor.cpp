@@ -52,15 +52,15 @@ public:
     }
 
     // Copy Ctor
-    // Student(const Student &srcobj)
-    // { 
-    //     cout << "Student Copy Ctor Called" << endl;
-    //     this->age = srcobj.age;
-    //     this->name = srcobj.name;
-    //     this->id = srcobj.id;
-    //     this->present = srcobj.present;
-    //     this->nos = srcobj.nos;
-    // }
+    Student(const Student &srcobj)
+    {
+        cout << "Student Copy Ctor Called" << endl;
+        this->age = srcobj.age;
+        this->name = srcobj.name;
+        this->id = srcobj.id;
+        this->present = srcobj.present;
+        this->nos = srcobj.nos;
+    }
 
     void study()
     {
@@ -88,13 +88,14 @@ int main()
 {
     // Copy Ctor
     Student s1(2305906, 19, 1, "Sushant", 5, "None");
-    Student s2 = s1;
+    // Copy Ctor
+    //Student s2 = s1;
+    Student s2(s1);
+
+    //ln 92 and 93 are the ways for calling copy ctor
 
     cout << s1.name << endl; // Output--> Sushant
     cout << s2.name << endl; // Output--> Sushant
-
-    Student s3;
-    s3 = s1;
 
     return 0;
 }
