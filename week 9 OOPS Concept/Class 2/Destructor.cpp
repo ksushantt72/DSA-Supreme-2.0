@@ -16,7 +16,7 @@ public:
     // ctor: default ctor
     Student()
     {
-        cout << "Student Constructor Called" << endl;
+        cout << "Student DEFAULT Constructor Called" << endl;
     }
 
     // Parameterized ctor called
@@ -59,13 +59,11 @@ public:
         cout << "Bunking" << endl;
     }
 
+    // Calling dtor
     ~Student()
     {
         cout << "Student dtor Called" << endl;
     }
-
-
-
 
 private:
     void gfChatting()
@@ -77,9 +75,10 @@ private:
 int main()
 {
     {
-        Student s1(2305906,19,1,"Sushant",1,"None");
+        Student s1(2305906, 19, 1, "Sushant", 1, "None");
         cout << s1.name << endl;
     }
     Student s2;
+
     return 0;
 }
