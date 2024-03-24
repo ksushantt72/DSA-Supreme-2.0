@@ -2,7 +2,16 @@
 #include <string>
 using namespace std;
 
-class Teacher
+class Person
+{
+public:
+    void walk()
+    {
+        cout << "Walking...." << endl;
+    }
+};
+
+class Teacher : public Person
 {
 public:
     void teach()
@@ -11,12 +20,12 @@ public:
     }
 };
 
-class Researcher
+class Researcher : public Person
 {
 public:
     void Research()
     {
-        cout << "Researching..." << endl;
+        cout << "Researching...." << endl;
     }
 };
 
@@ -26,7 +35,7 @@ class Professor : public Teacher, public Researcher
 public:
     void bore()
     {
-        cout << "Boring..." << endl;
+        cout << "Boring...." << endl;
     }
 };
 
