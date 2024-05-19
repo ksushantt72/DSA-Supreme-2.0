@@ -75,7 +75,7 @@ public:
 int main()
 {
     Student s1;
-    Student s2("Sushant","Anamika");
+    Student s2("Sushant", "Anamika");
     cout << "Name of Student s2 is : " << s2.name << endl;
     cout << "GfName of Student s2 is : " << s2.getgfname() << endl;
 
@@ -87,9 +87,22 @@ int main()
     cout << "Name of Student s3 is " << s3.name << endl;
     cout << "Name of Student s4 is " << s4.name << endl;
     cout << "Name of Student s5 is " << s5.name << endl;
-    //Checking thier gfname
-    cout << "GfName of Student s3 is "<< s3.getgfname() << endl;
-    cout << "GfName of Student s4 is "<< s4.getgfname() << endl;
-    cout << "GfName of Student s5 is "<< s5.getgfname() << endl;
+    // Checking thier gfname
+    cout << "GfName of Student s3 is " << s3.getgfname() << endl;
+    cout << "GfName of Student s4 is " << s4.getgfname() << endl;
+    cout << "GfName of Student s5 is " << s5.getgfname() << endl;
 
+    // Doing All the Above things Dynamically
+
+    Student *s6 = new Student("Sushantt", "Anamikaa", 18, 65);
+    cout << "Name of Student s6 is : " << s6->name << endl;
+    cout << "Gfname of Student s6 is : " << s6->getgfname() << endl;
+    cout << "Age of Student s6 is : " << s6->age << endl;
+    cout << "Weight of Student s6 is : " << s6->weight << endl;
+
+    Student *s7 = new Student((*s6));
+    cout << "Name of Student s7 is : " << s7->name << endl;
+    cout << "Gfname of Student s7 is : " << s7->getgfname() << endl;
+    cout << "Age of Student s7 is : " << s7->age << endl;
+    cout << "Weight of Student s7 is : " << s7->weight << endl;
 }
