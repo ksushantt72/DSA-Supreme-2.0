@@ -41,6 +41,16 @@ public:
         cout << " Parametrised ctor having 4 parameters called " << endl;
     }
 
+    // COPY CONSTRUCTOR
+    Student(Student &obj)
+    {
+        this->age = obj.age;
+        this->name = obj.name;
+        this->roll = obj.roll;
+        cout << "I am inside copy Constructor " << endl;
+    }
+
+    // Behaviour
     void sleep()
     {
         cout << "Sleeping " << endl;
@@ -70,4 +80,9 @@ int main()
     Student s4("Sushant", "Anamika", 18, 65);
     cout << "Name of s4 is :" << s4.name << endl;
 
+    Student *s5 = new Student("Nishant", "No_One", 19, 120);
+    cout << "Name of Student s5 is : " << s5->name << endl;
+
+    // COPY CONSTRUCTOR CALLING
+    Student s7(s4);
 }
