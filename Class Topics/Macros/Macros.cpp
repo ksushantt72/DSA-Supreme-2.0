@@ -52,4 +52,6 @@ int main()
     Max1();
     Max2();
     Max3();
+
+    cout << MAXX(6,16) << endl;
 }
