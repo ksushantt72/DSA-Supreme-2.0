@@ -1,0 +1,1 @@
+//Operating system ke andar storage management ke andar linked list ka use case kahan pr aata hai
