@@ -64,6 +64,17 @@ void InsertatTail(Node *&head, Node *&tail, int data)
         tail = newNode;
     }
 }
+void createtail(Node*&head,Node*&tail){
+    Node*temp=head;
+    while(temp->next!=NULL){
+        temp=temp->next;
+    }
+    //jab ye loop khatm ho chuka hoga
+    //then aapka temp wala pointer 
+    //khada hpga last node pe
+    //tab tail ko temp krke , tail ko last node pr le aao 
+    tail=temp;
+}
 
 int main()
 {

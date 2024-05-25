@@ -34,7 +34,7 @@ void PrintLL(Node *head)
     cout << endl;
 }
 
-void InsertAtHead(Node *&head, int data)
+void InsertAtHead(Node *&head,Node*&tail, int data)
 {
 
     if (head == NULL)
@@ -42,7 +42,12 @@ void InsertAtHead(Node *&head, int data)
         // It is the case when thee List is empty
         Node *newNode = new Node(data);
         head = newNode;
+
+        //remember yahan pr galtiii hui thi
+        //Tail ko new node declare krna most important hai in case of single node
+        tail=newNode;
     }
+    
     else
     {
         // Create a new Node
@@ -68,10 +73,12 @@ int main()
     fourth->next = fifth;
 
     Node *head = first;
+    Node *tail = fifth;
+
     cout << "Printing Linked List" << endl;
     PrintLL(head);
 
-    InsertAtHead(head, 500);
+    InsertAtHead(head,tail, 500);
     PrintLL(head);
 
 
