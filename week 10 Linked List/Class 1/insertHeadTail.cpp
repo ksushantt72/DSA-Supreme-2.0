@@ -35,16 +35,19 @@ void PrintLL(Node *head)
 }
 
 // Insert At Head Function Declaration
-void InsertAtHead(Node *&head, int data)
+void InsertAtHead(Node *&head,Node*&tail, int data)
 {
     Node *newNode = new Node(data);
 
     if (head == NULL)
     {
+        // empty Linked List case
         head = newNode;
+        tail = newNode;
     }
     else
     {
+
         newNode->next = head;
         head = newNode;
     }
@@ -56,7 +59,8 @@ void InsertatTail(Node *&head, Node *&tail, int data)
     Node *newNode = new Node(data);
     if (head == NULL)
     {
-        newNode = head;
+        head = newNode;
+        tail = newNode;
     }
     else
     {
@@ -64,16 +68,18 @@ void InsertatTail(Node *&head, Node *&tail, int data)
         tail = newNode;
     }
 }
-void createtail(Node*&head,Node*&tail){
-    Node*temp=head;
-    while(temp->next!=NULL){
-        temp=temp->next;
+void createtail(Node *&head, Node *&tail)
+{
+    Node *temp = head;
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
     }
-    //jab ye loop khatm ho chuka hoga
-    //then aapka temp wala pointer 
-    //khada hpga last node pe
-    //tab tail ko temp krke , tail ko last node pr le aao 
-    tail=temp;
+    // jab ye loop khatm ho chuka hoga
+    // then aapka temp wala pointer
+    // khada hpga last node pe
+    // tab tail ko temp krke , tail ko last node pr le aao
+    tail = temp;
 }
 
 int main()
@@ -93,17 +99,13 @@ int main()
     fourth->next = fifth;
     // Fifth is already linked to NULL as this is tail
 
-    // head naam ka pointer bana ke usko first waaale dabbe se conncet kr dena hai
-    // which means both will do the same
+    // // head naam ka pointer bana ke usko first waaale dabbe se conncet kr dena hai
+    // // which means both will do the same
     Node *head = first;
     Node *tail = fifth;
 
-    // cout << head->data << endl;
-    // cout << first->data << endl;
-
-    InsertAtHead(head, 500);
-    PrintLL(head);
 
     InsertatTail(head, tail, 100);
+    InsertAtHead(head,tail, 500);
     PrintLL(head);
 }

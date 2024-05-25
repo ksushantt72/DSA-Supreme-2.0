@@ -46,7 +46,9 @@ void insertAtTail(Node *&head, Node *&tail, int data)
         // for it to be tail it must be non single list
         // And we know that the newNode->next = NULL so this is sufficienct here
         // Writing here newNode->next=NULL is useless as it is preddefined by the constructor
-        head = newNode;
+        head=newNode;
+        //here mistake happens
+        tail=newNode;
     }
     else
     {
@@ -70,26 +72,12 @@ void PrintLL(Node *&head)
 
 int main()
 {
-    // Node *first = new Node(20);
-    // Node *second = new Node(30);
-    // Node *third = new Node(40);
-    // Node *fourth = new Node(50);
-    // Node *fifth = new Node(60);
-
-    // first->next = second;
-    // second->next = third;
-    // third->next = fourth;
-    // fourth->next = fifth;
-    // // fifth is already assigned to NULL as it is the last Node
-
-    // Node *head = first;
-    // Node *tail = fifth;
-    // PrintLL(head);
+   
     Node*head=NULL;
     Node*tail=NULL;
-
-    insertAtHead(head, tail, 50);
     insertAtTail(head, tail, 60);
+    insertAtTail(head, tail, 60);
+    insertAtHead(head, tail, 50);
     insertAtHead(head, tail, 40);
     insertAtHead(head, tail, 30);
     insertAtHead(head, tail, 20);
