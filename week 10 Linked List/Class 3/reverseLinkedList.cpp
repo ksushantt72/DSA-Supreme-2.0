@@ -55,11 +55,16 @@ int main()
     Node *fifth = new Node(50);
 
     first->next = second;
+    cout << first->next << endl;
     second->next = third;
     third->next = fourth;
     fourth->next = fifth;
 
     Node *head = first;
+    cout << "head : " << head << endl;
+
+    head=second;
+    cout << "head : " << head << endl;
     printLL(head);
     reverseLL(head);
     printLL(head);
