@@ -176,13 +176,21 @@ void DeleteNode(Node *&head, Node *&tail, int posn)
         Node *prevNode = currNode->prev;
         Node *nextNode = currNode->next;
 
-        // deleting links and assigning new links
+
 
         prevNode->next = nextNode;
         nextNode->prev = prevNode;
 
+        //Now for deleting the CURRNODE, we will delink it from prevNode and nextNode
+        // deleting links and assigning new links
+
         currNode->next = NULL;
         currNode->prev = NULL;
+
+        //deleting the currNode
+        delete currNode;
+        
+        
     }
 }
 
@@ -202,7 +210,7 @@ int main()
     insertAtHead(head, tail, 10);
     insertAtTail(head, tail, 50);
     // InsertAtPosition(head,tail,700,2);
-    DeleteNode(head, tail, 1);
+    DeleteNode(head, tail, 3);
 
     Print(head);
 }
