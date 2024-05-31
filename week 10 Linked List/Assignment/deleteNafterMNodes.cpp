@@ -77,42 +77,56 @@ void insertatTail(Node *&head, Node *&tail, int data)
     }
 }
 
-void deleteNodes(Node*& head, int m, int n) {
+void deleteNodes(Node*&head,int m,int n ){
     int len=length(head);
-    if (head == NULL || len < m+n) {
+    if(head==NULL || len < m+n){
         return;
     }
-
-    // Traverse m nodes
-    Node* temp = head;
-    int mCount = 1;
-    while (mCount < m && temp != nullptr) {
-        temp = temp->next;
-        mCount++;
+    //temp ko head pe laga denge
+    Node*temp=head;
+    //jitna nodes skip krna hai uska condition likh lenge
+    //skip m nodes 
+    while(m!=1){
+        m--;
+        //agar temp mera NULL ho jaye to return ho jayenge means m nodes NA
+        if(temp==NULL){
+            break;
+        }
+        temp=temp->next;
     }
-
     if (temp == nullptr) {
         return; // Not enough nodes to skip
     }
-
-    // Delete n nodes
-    Node* prev = temp;
-    temp = temp->next;
-    int nCount = 0;
-    while (nCount < n && temp != nullptr) {
-        Node* nextNode = temp->next;
+    //yahan pr hm mth node pr khare honge
+    // we will store mth node
+    Node*mthNode=temp;
+    
+    //Now we have to delete n nodes after the node on which we are standing
+    //we will move temp one step ahead so that we are on the node which are to be deleted
+    temp=mthNode->next;
+    while(n!=0){
+        //agar jo node pe khare hain wo node NULL hua to break kr jayenge
+        n--;
+        if(temp==NULL){
+            break;
+        }
+        //temp ke agle wale Node ko pehle store kr lenge
+        Node*nextNode=temp->next;
+        //fir temp ko delete kr denge
         delete temp;
-        temp = nextNode;
-        nCount++;
+        //Now we will update temp for further traversal
+        temp=nextNode;
     }
+    //connect mth node to next node or temp
+    mthNode->next=temp;
 
-    // Connect the previous node to the next node after deletion
-    prev->next = temp;
+    //Since One case has been solved
+    //the further cases will be solved by recursion
+    deleteNodes(temp,m,n);
 
-    // Recurse for the remaining part of the list
-    deleteNodes(temp, m, n);
+
+
 }
-
 
 
 
