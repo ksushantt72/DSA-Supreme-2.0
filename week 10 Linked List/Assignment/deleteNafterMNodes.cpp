@@ -17,16 +17,17 @@ public:
         this->data = data;
         this->next = NULL;
     }
-    Node(int x, Node *next) : data(x), next(next){}
-
+    Node(int x, Node *next) : data(x), next(next) {}
 };
 // Printll
-int length(Node*&head){
-    Node*temp=head;
-    int len=0;
-    while(temp!=NULL){
+int length(Node *&head)
+{
+    Node *temp = head;
+    int len = 0;
+    while (temp != NULL)
+    {
         len++;
-        temp=temp->next;
+        temp = temp->next;
     }
     return len;
 }
@@ -77,93 +78,77 @@ void insertatTail(Node *&head, Node *&tail, int data)
     }
 }
 
-void deleteNodes(Node*&head,int m,int n ){
-    int len=length(head);
-    if(head==NULL || len < m+n){
+void deleteNodes(Node *&head, int m, int n)
+{
+    Node *temp = head;
+
+    if (temp == nullptr || temp->next == nullptr)
+    {
         return;
     }
-    //temp ko head pe laga denge
-    Node*temp=head;
-    //jitna nodes skip krna hai uska condition likh lenge
-    //skip m nodes 
-    while(m!=1){
-        m--;
-        //agar temp mera NULL ho jaye to return ho jayenge means m nodes NA
-        if(temp==NULL){
+    // 1 case khudse solve krna hai
+    // for traversal of m nodes we will initialise mcount
+    int mcount = 0;
+    while (mcount < m - 1)
+    {
+        mcount++;
+        temp = temp->next;
+        if (temp == nullptr)
+        {
+            return;
+        }
+    }
+    // Yahan pe mera temp pointer jo hai wo deletion node se ek pehle hai
+    Node *prev = temp;
+    //Yahan pe maine Bahaut baar galtii karii thi
+    //Temp ko update krna jaruri hai warna jo temp abhi prev pe hai wo delete ho saktii hai 
+    temp=temp->next;
+    int ncount = 0;
+
+    while (ncount < n)
+    {
+        ncount++;
+        if (temp == nullptr)
+        {
+            // agar mera temp null hua to break krenge return nhi
+            // kyukii agar return krenge to fir NULL se prev ko initialise nhi kr payenge
+            // break krne se ye loop yahin terminate ho jayegi and the further processes will be executed
             break;
         }
-        temp=temp->next;
-    }
-    if (temp == nullptr) {
-        return; // Not enough nodes to skip
-    }
-    //yahan pr hm mth node pr khare honge
-    // we will store mth node
-    Node*mthNode=temp;
-    
-    //Now we have to delete n nodes after the node on which we are standing
-    //we will move temp one step ahead so that we are on the node which are to be deleted
-    temp=mthNode->next;
-    while(n!=0){
-        //agar jo node pe khare hain wo node NULL hua to break kr jayenge
-        n--;
-        if(temp==NULL){
-            break;
-        }
-        //temp ke agle wale Node ko pehle store kr lenge
-        Node*nextNode=temp->next;
-        //fir temp ko delete kr denge
+        Node *nextNode = temp->next;
         delete temp;
-        //Now we will update temp for further traversal
-        temp=nextNode;
+        temp = nextNode;
     }
-    //connect mth node to next node or temp
-    mthNode->next=temp;
-
-    //Since One case has been solved
-    //the further cases will be solved by recursion
-    deleteNodes(temp,m,n);
-
-
-
+    // yahan hain iska mtlbb saare nodes delete ho chuke hain
+    // we just need to connect prev to temp node which is after the deleted node
+    prev->next = temp;
+    // baaki ka case recursion sambhal lega
+    deleteNodes(temp, m, n);
 }
-
-
-
 
 int main()
 {
-    // i have created an empty linked list and then inserted values
+    // i have created an empty linked list and then inserted value4
+    Node *head = NULL;
+    Node *tail = NULL;
 
-Node *first = new Node(10);
-    Node *second = new Node(20);
-    Node *third = new Node(30);
-    Node *fourth = new Node(40);
-    Node *fifth = new Node(50);
-    Node *sixth = new Node(60);
-    Node *seventh = new Node(70);
-    Node *eighth = new Node(80);
-    Node *ninth = new Node(90);
-    Node *tenth = new Node(100);
-
-
-    first->next = second;
-    second->next = third;
-    third->next = fourth;
-    fourth->next = fifth;
-    fifth->next = sixth;
-    sixth->next = seventh;
-    seventh->next = eighth;
-    eighth->next = ninth;
-    ninth->next = tenth;
-
-    Node*head=first;
+    insertathead(head, tail, 60);
+    insertathead(head, tail, 50);
+    insertathead(head, tail, 40);
+    insertathead(head, tail, 30);
+    insertathead(head, tail, 20);
+    insertathead(head, tail, 10);
+    insertatTail(head, tail, 70);
+    insertatTail(head, tail, 80);
+    insertatTail(head, tail, 90);
+    insertatTail(head, tail, 100);
+    insertatTail(head, tail, 110);
+    insertatTail(head, tail, 120);
 
     PrintLL(head);
 
-    //CASE--->> Mujhe "m" Nodes ke baad "n" Nodes delete karne hain 
-    //Dummy funciton ---> delete(head,m,n)
-    deleteNodes(head,2,3);
+    // CASE--->> Mujhe "m" Nodes ke baad "n" Nodes delete karne hain
+    // Dummy funciton ---> delete(head,m,n)
+    deleteNodes(head, 2, 3);
     PrintLL(head);
-    
 }
