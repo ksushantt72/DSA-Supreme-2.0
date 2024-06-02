@@ -29,15 +29,14 @@ void printLL(Node *&head)
     cout << endl;
 }
 
-void reverseLL(Node*&head,Node *&prev, Node *&curr)
+Node* reverseLL(Node *&prev, Node *&curr)
 {
     // Base case
     if (curr == NULL)
     {
         
-        //curr agar NULL hai to previous wala hmara new head hoga
-        head=prev;
-        return;
+        //saara pointer reverse ho hi chuka hai aur rec.rev ko as a head return kr rhe hain
+        return prev;
     }
     //ek Case khul solve krna hai
     // after changing pointer, we will lose track so initially create nextnode ptr
@@ -46,7 +45,7 @@ void reverseLL(Node*&head,Node *&prev, Node *&curr)
     curr->next=prev;
     prev=curr;
     curr=nextNode;
-    reverseLL(head,prev,curr);
+    return reverseLL(prev,curr);
 }
 
 int main()
@@ -68,6 +67,7 @@ int main()
 
     Node *prev = NULL;
     Node *curr = head;
-    reverseLL(head,prev, curr);
+    // reverseLL(head,prev, curr);
+    head=reverseLL(prev,curr);
     printLL(head);
 }
