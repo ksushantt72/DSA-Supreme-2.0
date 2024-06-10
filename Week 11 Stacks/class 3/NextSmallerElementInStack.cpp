@@ -35,7 +35,7 @@ vector<int> NextSmaller(vector<int>&ans,int arr[],int size){
 
 
 int main(){
-    int arr[]={4,1,6,3};
+    int arr[]={8,4,6,2,3};
     int size=sizeof(arr)/sizeof(int);
 
     //creating a vector of specific size

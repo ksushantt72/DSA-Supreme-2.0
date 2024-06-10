@@ -30,7 +30,7 @@ void PrevSmaller(vector<int>&ans,int arr[],int size){
 }
 
 int main(){
-    int arr[]={1,2,3,4};
+    int arr[]={8,4,6,2,3};
     int size=sizeof(arr)/sizeof(int);
     
     
