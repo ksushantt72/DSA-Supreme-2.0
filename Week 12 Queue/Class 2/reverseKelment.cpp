@@ -8,6 +8,9 @@ void ReverseKelement(queue<int>&q,int k){
     int n=q.size();
     //Now we will first store the k elements over here 
     int tempk=k;
+    if(k>n || k==0){
+        return;
+    }
     while(tempk!=0){
         st.push(q.front());
         q.pop();
