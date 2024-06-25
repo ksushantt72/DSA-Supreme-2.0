@@ -7,8 +7,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<long long> printFirstNegativeInteger(long long int arr[],
-                                             long long int n, long long int k);
+vector<long long> printFirstNegativeInteger(long long int arr[],long long int n, long long int k);
 
 // Driver program to test above functions
 int main() {
