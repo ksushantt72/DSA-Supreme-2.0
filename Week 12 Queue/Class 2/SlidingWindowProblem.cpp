@@ -4,7 +4,7 @@
 #include <stack>
 using namespace std;
 
-void printFirst(int *arr, int n, int k)
+void PrintFirstNegOfEveryWindow(int *arr, int n, int k)
 {
     // Creating Doubly Ended Queue for Storing Negative Numbers
     deque<int> dq;
@@ -37,7 +37,7 @@ void printFirst(int *arr, int n, int k)
 
         // Removal
         // Removal will take place if the index doesnot belong to the window we are working on
-        if (i - dq.front() >= k)
+        if (!dq.empty() && i - dq.front() >= k)
         {
             dq.pop_front();
         }
@@ -69,7 +69,7 @@ int main()
     int size = sizeof(arr) / sizeof(int);
 
     int k = 3;
-    printFirst(arr,size,k);
+    PrintFirstNegOfEveryWindow(arr,size,k);
 
     return 0;
 }
