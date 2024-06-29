@@ -53,7 +53,7 @@ void PreorderTraversal(Node *&rootNode)
     //Printing the Current Value in case of PreOrderTraversal
     cout << rootNode->data << "->";
     PreorderTraversal(rootNode->left);
-    PreorderTraversal(rootNode->left);
+    PreorderTraversal(rootNode->right); 
 
 }
 void inOrderTraversal(Node *&rootNode)
@@ -78,8 +78,8 @@ void postOrderTraversal(Node *&rootNode)
     //We will print after the Node's left and right Elements are printed
     
     postOrderTraversal(rootNode->left);
-    cout << rootNode->data << "->";
     postOrderTraversal(rootNode->right);
+    cout << rootNode->data << "->";
 }
 
 int main()
