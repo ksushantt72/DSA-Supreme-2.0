@@ -45,43 +45,78 @@ Node *CreateTree()
 
 void PreorderTraversal(Node *&rootNode)
 {
-    queue<Node *> q;
-    //Base Case
-    if(rootNode==nullptr){
+    // Base Case
+    if (rootNode == nullptr)
+    {
         return;
     }
-    //Printing the Current Value in case of PreOrderTraversal
+    // Printing the Current Value in case of PreOrderTraversal
     cout << rootNode->data << "->";
     PreorderTraversal(rootNode->left);
-    PreorderTraversal(rootNode->right); 
-
+    PreorderTraversal(rootNode->right);
 }
 void inOrderTraversal(Node *&rootNode)
 {
-    queue<Node *> q;
-    //Base Case
-    if(rootNode==nullptr){
+    // Base Case
+    if (rootNode == nullptr)
+    {
         return;
     }
-    //we will print in order
+    // we will print in order
     inOrderTraversal(rootNode->left);
     cout << rootNode->data << "->";
     inOrderTraversal(rootNode->right);
 }
 void postOrderTraversal(Node *&rootNode)
 {
-    queue<Node *> q;
-    //Base Case
-    if(rootNode==nullptr){
+    // Base Case
+    if (rootNode == nullptr)
+    {
         return;
     }
-    //We will print after the Node's left and right Elements are printed
-    
+    // We will print after the Node's left and right Elements are printed
+
     postOrderTraversal(rootNode->left);
     postOrderTraversal(rootNode->right);
     cout << rootNode->data << "->";
 }
 
+void LevelOrderTraversal(Node *&rootNode)
+{
+    queue<Node *> q;
+    q.push(rootNode);
+    // we will print the Main root Node initilly
+    q.push(nullptr);
+    while (!q.empty())
+    {
+        Node *front = q.front();
+
+        // then we will pop the front element from the queue as it has been already printed
+        q.pop();
+
+        if (front == nullptr)
+        {
+            cout << endl;
+            if (!q.empty())
+            {
+                q.push(nullptr);
+            }
+        }
+        else
+        {
+            cout << front->data << "->";
+            // Now we will p1ush the left and right elements of the front
+            if (front->left != nullptr)
+            {
+                q.push(front->left);
+            }
+            if (front->right != nullptr)
+            {
+                q.push(front->right);
+            }
+        }
+    }
+}
 int main()
 {
     Node *root = CreateTree();
@@ -98,6 +133,11 @@ int main()
 
     cout << "PostOrderTraversal: ";
     postOrderTraversal(root);
+    cout << endl;
+    cout << endl;
+
+    cout << "LevelOrderTraversal Printing Levellay " << endl;
+    LevelOrderTraversal(root);
     cout << endl;
 
     return 0;
