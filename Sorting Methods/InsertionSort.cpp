@@ -2,15 +2,15 @@
 #include<vector>
 using namespace std;
 
-void PrintArray(vector<int>&arr){
-    for(int i=0;i<arr.size();i++){
+void PrintArray(int arr[],int size){
+    for(int i=0;i<size;i++){
         cout << arr[i] << " ";
     }
     cout << endl;
 }
 
-void InsertionSort(vector<int>&arr){
-    int n=arr.size();
+void InsertionSort(int arr[],int size){
+    int n=size;
     for(int i=0;i<n;i++){
         int key=arr[i];
         int j=i-1;
@@ -23,8 +23,21 @@ void InsertionSort(vector<int>&arr){
     }
 }
 
+void createArray(int arr[],int size){
+    for(int i=0;i<size;i++){
+        cout << "Enter the Inout for Index :- "<< i << " : ";
+        cin >> arr[i];
+    }
+}
+
 int main(){
-    vector<int>arr={33,11,55,66,44,22};
-    InsertionSort(arr);
-    PrintArray(arr);
+    int size;
+    cout << "Enter the size of the Array : ";
+    cin >> size;
+    int arr[size];
+    createArray(arr,size);
+    PrintArray(arr,size);
+    InsertionSort(arr,size);
+    cout << "Printing the ARray after Insetion Sort"<< endl;
+    PrintArray(arr,size);
 }

@@ -2,30 +2,45 @@
 #include<vector>
 using namespace std;
 
-//Function Declaration for Printing Vector
-int PrintVector(vector<int> &v){
-    for(int i=0;i<v.size();i++){
-        cout << v[i] << " ";
-    }
-    cout << endl;
-}
 
-void BubbleSort(vector<int> &v){
-    int n=v.size();
+void BubbleSort(int arr[],int size){
+    int n=size;
     for(int i=0;i<n-1;i++){
         for(int j=0;j<n-i-1;j++){
-            if(v[j]>v[j+1]){
-                swap(v[j],v[j+1]);
-                
+            if(arr[j]>arr[j+1]){
+                swap(arr[j],arr[j+1]);
             }
         }
     }
 }
 
+void createArray(int arr[],int size){
+    for(int i=0;i<size;i++){
+        cout << "Enter the Inout for Index :- "<< i << " : ";
+        cin >> arr[i];
+    }
+}
+
+void PrintArray(int arr[],int size){
+    //Printing array Logic
+    cout << "Printing Array : ";
+    for(int i=0;i<size;i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
 
 int main(){
-    vector<int>v={5,4,3,2,1};
-    BubbleSort(v);
-    PrintVector(v);
+    int size;
+    cout << "Enter the size of the Array : ";
+    cin >> size;
+    int arr[size];
+    createArray(arr,size);
+    PrintArray(arr,size);
+    
+    BubbleSort(arr,size);
+    cout << "Printing Array After the Sorting : "<<endl;
+    PrintArray(arr,size);
     return 0;
 }
