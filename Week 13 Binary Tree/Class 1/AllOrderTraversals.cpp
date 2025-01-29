@@ -90,7 +90,6 @@ void LevelOrderTraversal(Node *&rootNode)
     while (!q.empty())
     {
         Node *front = q.front();
-
         // then we will pop the front element from the queue as it has been already printed
         q.pop();
 
