@@ -11,11 +11,10 @@ int main(){
     //Intersection of arr and brr
 
     for(int i=0;i<arr.size();i++){
-        int element=arr[i];
         //For every element in arr checking in brr
         for(int j=0;j<brr.size();j++){
-            if(element==brr[j]){
-                ans.push_back(element);
+            if(arr[i]==brr[j]){
+                ans.push_back(arr[i]);
             }
         }
     }

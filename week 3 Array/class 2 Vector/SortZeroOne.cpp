@@ -21,7 +21,6 @@ int main(){
             cout << "Found Zero"<< endl;
             cout << "Before Swapping ";
             PrintArray(arr);
-
             swap(arr[start],arr[i]);
             cout << "After  Swapping ";
             PrintArray(arr);
